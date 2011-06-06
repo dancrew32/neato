@@ -1,0 +1,15 @@
+view system
+http://www.devshed.com/c/a/PHP/Building-a-Template-Parser-Class-with-PHP-Part-I/1/
+
+crud
+http://www.killersites.com/community/index.php?/topic/1969-basic-php-system-vieweditdeleteadd-records/
+
+good sanitization
+http://codeassembly.com/How-to-sanitize-your-php-input/
+
+file upload
+http://www.zymic.com/tutorials/php/creating-a-file-upload-form-with-php/
+
+
+autoload classes
+http://us2.php.net/autoload
