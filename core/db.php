@@ -4,14 +4,16 @@ class db {
 		$dbu = 'root';
 		$dbp = 'root';
 		$dbh = 'localhost';
+		$dbn = 'glue';
 		$dbc = mysql_connect($dbh, $dbu, $dbp)
 			or die('db offline');
 		app::set('dbc', $dbc); 
-		app::set('db', mysql_select_db('glue', $dbc));
+		app::set('db', mysql_select_db($dbn, $dbc));
 	}
 
 	public function stop() {
-		mysql_close(self::get('dbc'));
+		$dbc = app::get('dbc');
+		mysql_close($dbc);
 	}
 
 	public function insert() { }

@@ -26,6 +26,14 @@ function q($query) {
 	return mysql_query($query);
 }
 
+// get query result
 function qr($result) {
 	return mysql_fetch_assoc($result);
+}
+
+// log to file
+function logIt($info='', $fileName='logs/info.txt') {
+	$f = fopen($fileName, 'a');
+	fwrite($f, $info . '\n');
+	fclose($f);
 }

@@ -21,8 +21,37 @@
 	<?php if ($data->digits): ?>
 		<?php echo $data->digits; ?>
 	<?php endif; ?> 
+
+<a id="partial" href="index">Get Partial</a>
+	<div id="stuff">
+
+	</div>
 </div></div>
 
+<script src="js/awesome.js"></script>
+<script>
+(function($) {
+	$.ready(function() {
+		$.bind($.getId('partial'), 'click', function(e) {
+			$.cancelEvent(e);	
+			var $this = this;
+			$.log($this.href);
+			$.ajax({
+				url: $this.href,
+				type: 'get',
+				complete: function(res) {
+					$.log(res.responseText);
+					var json = $.parse(res.responseText, 'json');
+					$.log(json);
+					//
+					//$.getId('stuff').innerHTML = res
+				},
+				failure: function() {}
+			});
+		});
+	});
+}(AWESOME));
+</script>
 <?php if ($data->googleAnalytics): ?>
 <script>
 var _gaq=[['_setAccount','<?php if ($data->GAC) { echo $data->GAC; } ?>'],['_trackPageview'],['_trackPageLoadTime']];
