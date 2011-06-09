@@ -40,11 +40,8 @@
 				url: $this.href,
 				type: 'get',
 				complete: function(res) {
-					$.log(res.responseText);
 					var json = $.parse(res.responseText, 'json');
-					$.log(json);
-					//
-					//$.getId('stuff').innerHTML = res
+					$.getId('stuff').innerHTML += json.content;
 				},
 				failure: function() {}
 			});
@@ -52,6 +49,7 @@
 	});
 }(AWESOME));
 </script>
+
 <?php if ($data->googleAnalytics): ?>
 <script>
 var _gaq=[['_setAccount','<?php if ($data->GAC) { echo $data->GAC; } ?>'],['_trackPageview'],['_trackPageLoadTime']];

@@ -20,6 +20,7 @@ app::getClasses('lib');
 
 app::setRoutes(array(
 	'/'                => 'index',
+	'/index'                => 'index',
 	'/(?P<number>\d+)' => 'index',
 //	'.*'               => 'NotFound',
 ));
