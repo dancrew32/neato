@@ -1,14 +1,31 @@
 <?php
-require_once('db.php');
-require_once('helpers.php');
-require_once('glue.php');
-$urls = array(
-	'/' => 'index',
-	'/upload' => 'upload',
-	'/(?P<number>\d+)' => 'index',
-	'.*' => 'catchall',
-);
+require_once('core/helpers.php');
+require_once('core/db.php');
+require_once('core/app.php');
 
-includeFolder('lib');
-glue::stick($urls);
-mysql_close($dbc);
+db::init();
+
+app::set('data', (object) array(
+	'layout' => 'view/master.php',
+	'title' => 'My Site',
+	'meta' => (object) array(
+		'author' => 'Dan Masquelier',
+		'description' => 'A simple php webapp',
+	),
+	'googleAnalytics' => false,
+	'GAC' => 'UA-XXXXX-X',
+));
+
+app::getClasses('lib');
+
+app::setRoutes(array(
+	'/'                => 'index',
+	'/(?P<number>\d+)' => 'index',
+//	'.*'               => 'NotFound',
+));
+
+if (!app::isAjax()) {
+	echo app::view(app::get('data')->layout);	
+}
+
+db::stop();

@@ -1,4 +1,9 @@
 <?php
+/*
+ * Global Helper Methods
+ * because 
+ */
+
 // better print_r
 function pr($var) {
 	echo '<pre>';
@@ -6,16 +11,9 @@ function pr($var) {
 	echo '</pre>';
 }
 
-// Auto Include files in a folder
-function includeFolder($folder='lib') {
-	foreach (glob($folder . '/*.php') as $class) {
-		include $class;
-	}
-}
-
 // escape strings
 function e($str) {
-	return htmlspecialchars($str);
+	echo htmlspecialchars($str);
 }
 
 // escape db input

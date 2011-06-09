@@ -1,5 +1,5 @@
 <?php
-class catchall {
+class NotFound {
 	function GET() {
 		echo 'catch all!';
 	}
