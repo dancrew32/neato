@@ -7,7 +7,6 @@ class index {
 			$v .= $row['title'];
 			$v .= $row['content'];
 			$v .= '<br/>';
-			$v .= 'aw hell naw';
 		}
 
 		// Set View Content
