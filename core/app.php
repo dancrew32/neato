@@ -30,6 +30,27 @@ class app {
 		return $pageHTML;
 	}
 
+	// Stylesheet compiler/minifier
+	public function setStyles($lessFile='css/base.less', $cssFile='css/base.css', $mode='development') {
+		require_once('lessc.inc.php');
+		$less = new lessc($lessFile);
+		$css = $less->parse();
+
+		if (self::get('data')->mode == 'production') {
+			$toReplace = array(
+				"\r\n", 
+				"\r",
+				"\n",
+				"\t",
+				"  ",
+				"   ",
+			);
+			$css = str_replace(" {", "{", $css);
+			$css = str_replace($toReplace, "", $css);
+		}
+		file_put_contents($cssFile, $css); 
+	}
+
 	public static function setRoutes ($urls) {
 		$method = strtoupper($_SERVER['REQUEST_METHOD']);
 		$path = $_SERVER['REQUEST_URI'];

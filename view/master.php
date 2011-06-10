@@ -22,12 +22,13 @@
 		<?php echo $data->digits; ?>
 	<?php endif; ?> 
 
-<a id="partial" href="index">Get Partial</a>
-	<div id="stuff">
+	<div id="sidebarA">Sidebar A</div>
+	<div id="sidebarB">Sidebar B</div>
 
-	</div>
 </div></div>
 
+<a id="partial" href="index">Get Partial</a>
+<div id="stuff"></div>
 <script src="js/awesome.js"></script>
 <script>
 (function($) {

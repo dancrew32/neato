@@ -6,6 +6,7 @@ require_once('core/app.php');
 db::init();
 
 app::set('data', (object) array(
+	'mode' => 'development',
 	'layout' => 'view/master.php',
 	'title' => 'My Site',
 	'meta' => (object) array(
@@ -16,13 +17,14 @@ app::set('data', (object) array(
 	'GAC' => 'UA-XXXXX-X',
 ));
 
+app::setStyles('css/base.less', 'css/base.css', app::get('data')->mode);
+
 app::getClasses('lib');
 
 app::setRoutes(array(
-	'/'                => 'index',
-	'/index'                => 'index',
+	'/' => 'index',
+	'/index' => 'index',
 	'/(?P<number>\d+)' => 'index',
-//	'.*'               => 'NotFound',
 ));
 
 if (!app::isAjax()) {

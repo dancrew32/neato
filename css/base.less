@@ -1,0 +1,11 @@
+@import 'test.less';
+
+@color: #f00;
+.mixin(@colorA: #0f0; @colorB: #00f) {
+	background-color: @colorA;
+	background-color: @colorB;
+}
+#main {
+	width: @base;
+	.mixin;
+}
