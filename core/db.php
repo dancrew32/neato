@@ -4,7 +4,7 @@ class db {
 		$dbu = 'root';
 		$dbp = 'root';
 		$dbh = 'localhost';
-		$dbn = 'glue';
+		$dbn = 'neato';
 		$dbc = mysql_connect($dbh, $dbu, $dbp)
 			or die('db offline');
 		app::set('dbc', $dbc); 

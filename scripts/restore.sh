@@ -1,1 +1,1 @@
-mysql -uroot -proot glue < ../db/glue.sql
+mysql -uroot -proot neato < ../db/neato.sql

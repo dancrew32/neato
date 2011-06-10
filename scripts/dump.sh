@@ -1,1 +1,1 @@
-mysqldump --opt -uroot -proot glue > ../db/glue.sql
+mysqldump --opt -uroot -proot neato > ../db/neato.sql

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (i686)
 --
--- Host: localhost    Database: glue
+-- Host: localhost    Database: neato
 -- ------------------------------------------------------
 -- Server version	5.1.54-1ubuntu4
 

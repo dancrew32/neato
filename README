@@ -1,0 +1,3 @@
+Neato is a simple php framework that helps spin up sites with controllers and views. It has lessphp integrated and can minify in production mode. 
+
+(Still a work in progress)
