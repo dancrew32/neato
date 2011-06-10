@@ -36,7 +36,7 @@ CREATE TABLE `pages` (
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` VALUES (1,'sup bitch','bleh bleh bleh'),(2,'yo negro','bleh bleh bleh');
+INSERT INTO `pages` VALUES (1,'sup man','bleh bleh bleh'),(2,'yo dude','bleh bleh bleh');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

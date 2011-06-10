@@ -1,3 +1,30 @@
 Neato is a simple php framework that helps spin up sites with controllers and views. It has lessphp integrated and can minify in production mode. 
 
 (Still a work in progress)
+
+index.php - main site configuration file
+
+/core
+	db.php - db connection library
+	app.php - app functionality (routing, template parser, less compiler, caching, ajax detection, etc...)
+	helpers.php - simple function shortcuts
+
+/lib
+	write your classes here and they get automatically included (just setup your routes)
+	access methods with GET($params) or POST($params)
+
+/view
+	view templates that you may associate with your controllers
+
+/db
+	database dump storage
+
+/scripts
+	useful scripts (e.g. db dump/restore
+
+/css
+	base.css (main output file) and base.less file storage. @import files in base.less and they're automatically compiled and output in base.css. if mode is production, base.css is minified
+
+/js
+	simple javascript library and plugins
+
