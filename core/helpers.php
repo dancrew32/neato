@@ -37,3 +37,8 @@ function logIt($info='', $fileName='logs/info.txt') {
 	fwrite($f, $info . '\n');
 	fclose($f);
 }
+
+// make links
+function makeLink(array $data) {
+	return '<a href="'. $data['href'] .'">'. $data['value'] .'</a>';
+}

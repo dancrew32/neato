@@ -1,1 +1,1 @@
-<?php echo $data->content; ?>
+<?php echo $data->content->main; ?>

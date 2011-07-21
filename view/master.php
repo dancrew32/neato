@@ -6,50 +6,45 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><?php echo $data->title; ?></title>
+	<?php if ($data->current->page->slug != 'home'): ?>
+		<title><?php echo $data->navigation[$data->current->page->slug]['value']; ?> - <?php echo $data->title; ?></title>
+	<?php else: ?>
+		<title><?php echo $data->title; ?></title>
+	<?php endif; ?>
 	<meta name="description" content="<?php echo $data->meta->description; ?>">
 	<meta name="author" content="<?php echo $data->meta->author; ?>">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" href="css/base.css">
 </head>
 <body>
 
-<div id="mainOuter"><div id="main" role="main">
-	<?php echo $data->content; ?>
-	<?php if ($data->digits): ?>
-		<?php echo $data->digits; ?>
-	<?php endif; ?> 
+<div id="header">
+<?php foreach($data->navigation as $nav): ?>
+	<li><?php echo makeLink(array('href' => $nav['href'], 'value' => $nav['value'])); ?></li>
+<?php endforeach; ?>
+</div>
 
-	<div id="sidebarA">Sidebar A</div>
-	<div id="sidebarB">Sidebar B</div>
+<div id="mainOuter"><div id="main" role="main">
+
+	<div id="content">
+		<?php echo $data->content->main; ?>
+		<?php if ($data->content->pager->hasPager): ?>
+			<?php include('shared/_pager.php'); ?>
+		<?php endif; ?>
+	</div>
+
+	<?php if (isset($data->content->sidebarA)): ?>
+		<div id="sidebarA">
+			<?php echo $data->content->sidebarA; ?>	
+		</div>
+	<?php endif; ?>
+
+	<?php if (isset($data->content->sidebarB)): ?>
+		<div id="sidebarB">
+			<?php echo $data->content->sidebarB; ?>	
+		</div>
+	<?php endif; ?>
 
 </div></div>
-
-<a id="partial" href="index">Get Partial</a>
-<div id="stuff"></div>
-<script src="js/awesome.js"></script>
-<script>
-(function($) {
-	$.ready(function() {
-		$.bind($.getId('partial'), 'click', function(e) {
-			$.cancelEvent(e);	
-			var $this = this;
-			$.log($this.href);
-			$.ajax({
-				url: $this.href,
-				type: 'get',
-				complete: function(res) {
-					var json = $.parse(res.responseText, 'json');
-					$.getId('stuff').innerHTML += json.content;
-				},
-				failure: function() {}
-			});
-		});
-	});
-}(AWESOME));
-</script>
 
 <?php if ($data->googleAnalytics): ?>
 <script>
